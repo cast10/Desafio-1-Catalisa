@@ -16,7 +16,6 @@ public class DescubraOnunero {
 
             int tentivas = 2; //nível de diculdade ///
             int ponto5 = 5;
-            int ponto10= 10;
             int total = 0;
 
             List <Integer> digito = new ArrayList<>();
