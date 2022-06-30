@@ -14,9 +14,10 @@ public class DescubraOnunero {
             //Scanner sc= new Scanner(System.in);
             System.out.println("Você tem 3 chances para aceitar  ");
 
-            int tentivas = 3;
+            int tentivas = 2; //nível de diculdade ///
             int ponto5 = 5;
             int ponto10= 10;
+            int total = 0;
 
             List <Integer> digito = new ArrayList<>();
 
@@ -26,18 +27,23 @@ public class DescubraOnunero {
                 System.out.println("Por favor digitar um número de 0 a 50");
 
 
-                    for (int i = 0; i <tentivas; i++) {
+                    for (int i = 0; i <= tentivas; i++) {
                         System.out.println("Digite o seu número da sorte ");
                         Scanner input = new Scanner(System.in);
                         digito.add(input.nextInt());
+
+                        if(tentivas == i ) {System.out.println("Você atingiu todas as 3 tentativas começa o jogo de novo");
+
+                        }
 
                         if (digito.get(i) <= 50) {
 
                             //numeros aleatórios //
 
                             Random gerador = new Random();
-                            int valor = gerador.nextInt(50) + 1;
+                            int valor = gerador.nextInt(2) + 1;
                             System.out.println("Número gerador é " + valor);
+
 
 
                             int menos1 = digito.get(i) - 1;
@@ -45,37 +51,44 @@ public class DescubraOnunero {
 
                             if (digito.get(i) == valor) {
 
-                                System.out.println("Paranbéns ! Você acertou de cheio ganhou  " + ponto10 + " pontos");
+                                System.out.println("Paranbéns ! Você acertou de cheio ");
 
-                            }else if (mais1 == valor){
+                                total = 10;
+                            }
+                            else if (mais1 == valor){
 
-                                System.out.println("Você ficou no quase,,e ganhou "  +ponto5+  "   pontos ");
-                            }else if (menos1 == valor){
+                                System.out.println("Você ficou no quase,,e ganhou "  + ponto5 +  "   pontos ");
+
+                                total += 5;
+
+                            }
+                            else if (menos1 == valor){
 
                                 System.out.println ("Você ficou no quase,,e ganhou "  +ponto5+  "  pontos");
 
-                            }else System.out.println("Jogue denovo!!! ");
+                                total += 5;
+                            }
 
-                            int total= ponto5+ponto5;
 
-                            System.out.println ("Você acumulou  "+ total +  "  pontos ");
 
-                        }else {
-                            System.out.println("Este número é inválipo ");
+                            else {System.out.println ("Jogue denovo!!! ");
+
+                            }
+
+
+                                if(total >= 10) { System.out.println("Parabéns você atingiu 10 Pobntos" );
+                                break;
+
+                            }
+
+
+                            }
+
+
+                        else {
+                            System.out.println("Este número é inválipo e você perdeu essa rodada");
 
                         }
-
-
-
-
-
-
-                        }
-
-
-
-
-
 
 
 
@@ -88,13 +101,8 @@ public class DescubraOnunero {
 
 
 
-            }
-
-
-
-
-
-
+        }
+}
 
 
 
